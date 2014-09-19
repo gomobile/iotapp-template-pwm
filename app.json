@@ -1,0 +1,15 @@
+{
+	"reponame":"iotapp-template-pwm",
+	"title":"PWM",
+	"tooltip":"A simple node.js application intended to read and write analog values to fade a LED from Digital pins (PWM) on the Intel based development boards such as the Intel(R) Galileo and Edison with Arduino breakout board.",
+	"description":"A simple node.js application intended to read and write analog values to fade a LED from Digital pins (PWM) on the Intel based development boards such as the Intel(R) Galileo and Edison with Arduino breakout board.",
+	"articleurl":"TBA",
+    "screenshotUrl":"",
+    "iconUrl":"",
+	"highlights":[""],
+    "keywords":[""],
+	"visible": "true",
+	"apppreview":"false",
+	"appname":"demo.pwm",
+	"relname":"4.0.0"
+}
