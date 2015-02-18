@@ -21,7 +21,7 @@ Article: https://software.intel.com/en-us/html5/articles/intel-xdk-iot-edition-n
 
 var mraa = require("mraa"); //require mraa
 //Initialize PWM on Digital Pin #3 (D3) and enable the pwm pin
-var pwm3 = new mraa.Pwm(3, -1, false);
+var pwm3 = new mraa.Pwm(3);
 pwm3.enable(true);
 
 //set the period in microseconds.
