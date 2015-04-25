@@ -1,6 +1,5 @@
 /*jslint node:true, vars:true, bitwise:true, unparam:true */
 /*jshint unused:true */
-/*global */
 
 /*
 Pulse Width Modulation, or PWM, is a technique for getting analog results with digital means.
