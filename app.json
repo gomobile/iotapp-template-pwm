@@ -17,5 +17,7 @@
       ""
    ],
    "appName" : "demo.pwm",
+   "section" : "iot-templates",
+   "group" : "other",
    "visible" : true
 }
