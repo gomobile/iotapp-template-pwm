@@ -1,5 +1,5 @@
 {
-  "name": "PWM",
+  "name": "xdk-iot-pwm",
   "description": "",
   "version": "0.0.0",
   "main": "main.js",
