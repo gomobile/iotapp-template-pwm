@@ -6,10 +6,10 @@
   "visible" : true,
   "sortWeight" : "0.0",
   "repoName" : "iotapp-template-pwm",
-  "tooltip" : "A simple node.js application intended to read and write analog values to fade a LED from Digital pins (PWM) on the Intel based development boards such as the Intel(R) Galileo and Edison with Arduino breakout board.",
-  "description" : "A simple node.js application intended to read and write analog values to fade a LED from Digital pins (PWM) on the Intel based development boards such as the Intel(R) Galileo and Edison with Arduino breakout board.",
+  "tooltip" : "Generate a PWM to (optionally) control the intensity of an LED.",
+  "description" : "A simple Node.js IoT application that generates a PWM signal using a built-in PWM digital I/O pin, on select Intel IoT development boards. Optionally, use the PWM signal to control the intensity of an attached LED.",
   "articleUrl" : "https://software.intel.com/en-us/xdk/docs/intel-xdk-iot-edition-nodejs-templates",
-  "keywords" : [""],
+  "keywords" : ["PWM","LED"],
   "targets": ["edison","galileo"],
   "runtimes": ["node"]
 }
