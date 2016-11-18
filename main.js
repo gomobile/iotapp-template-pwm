@@ -1,39 +1,74 @@
-/*jslint node:true, vars:true, bitwise:true, unparam:true */
-/*jshint unused:true */
-
 /*
-Pulse Width Modulation, or PWM, is a technique for getting analog results with digital means.
+ * A simple Node.js IoT app that generates a PWM signal using a built-in
+ * PWM digital I/O pin, on select Intel IoT development boards. Optionally,
+ * use the PWM signal to control the intensity of an attached LED.
+ *
+ * Supported Intel IoT development boards are identified in the code.
+ *
+ * See LICENSE.md for license terms and conditions.
+ *
+ * https://software.intel.com/en-us/html5/articles/intel-xdk-iot-edition-nodejs-templates
+ */
 
-A simple node.js application intended to read and write analog values to fade a LED from Digital pins on the Intel based development boards such as the Intel(R) Galileo and Edison with Arduino breakout board.
+// keep /*jslint and /*jshint lines for proper jshinting and jslinting
+// see http://www.jslint.com/help.html and http://jshint.com/docs
+/* jslint node:true */
+/* jshint unused:true */
 
-MRAA - Low Level Skeleton Library for Communication on GNU/Linux platforms
-Library in C/C++ to interface with Galileo & other Intel platforms, in a structured and sane API with port nanmes/numbering that match boards & with bindings to javascript & python.
+"use strict" ;
 
-Steps for installing MRAA & UPM Library on Intel IoT Platform with IoTDevKit Linux* image
-Using a ssh client: 
-1. echo "src maa-upm http://iotdk.intel.com/repos/1.1/intelgalactic" > /etc/opkg/intel-iotdk.conf
-2. opkg update
-3. opkg upgrade
 
-Article: https://software.intel.com/en-us/html5/articles/intel-xdk-iot-edition-nodejs-templates
-*/
+var APP_NAME = "IoT PWM" ;
+var cfg = require("./cfg-app-platform.js")() ;          // init and config I/O resources
 
-var mraa = require("mraa"); //require mraa
-//Initialize PWM on Digital Pin #3 (D3) and enable the pwm pin
-var pwm3 = new mraa.Pwm(3);
-pwm3.enable(true);
+console.log("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n") ;   // poor man's clear console
+console.log("Initializing " + APP_NAME) ;
 
-//set the period in microseconds.
-pwm3.period_us(2000);
-var value = 0.0;
 
-setInterval(function () {
-    if (value >= 1.0) {
-        value = 0.0;
-    }
-    
-    value = value + 0.03;
-    pwm3.write(value); //Write duty cycle value. 
+// confirm that we have a version of libmraa and Node.js that works
+// exit this app if we do not
 
-    console.log(pwm3.read());//read current value that is set before.
-}, 3000);
+cfg.identify() ;                // prints some interesting platform details to console
+
+if( !cfg.test() ) {
+    process.exitCode = 1 ;
+    throw new Error("Call to cfg.test() failed, check console messages for details.") ;
+}
+
+if( !cfg.init() ) {
+    process.exitCode = 1 ;
+    throw new Error("Call to cfg.init() failed, check console messages for details.") ;
+}
+
+
+// configure (initialize) our I/O pins for usage (gives us an I/O object)
+// configuration is based on parameters provided by the call to cfg.init()
+
+cfg.io = new cfg.mraa.Pwm(cfg.ioPin, cfg.ioOwner, cfg.ioChipId) ;
+cfg.io.enable(true) ;                   // enable the PWM pin for use
+
+console.log("Using PWM pin number: " + cfg.ioPin) ;
+
+
+// sweep thru a range of PWM duty cycles
+// maintain a single PWM periodic interval
+
+cfg.io.period_us(2000) ;                        // set PWM period in microseconds (us)
+var pwmDutyCycle = 0.00 ;                       // starting PWM duty-cycle (percent/100)
+var periodicActivity = function() {
+    cfg.io.write(pwmDutyCycle) ;                // set PWM duty-cycle to desired value
+    process.stdout.write(cfg.io.read().toFixed(2)*100 + "% ") ; // duty-cycle % to console
+    pwmDutyCycle += 0.10 ;                      // add 10% for the next interval
+    if( pwmDutyCycle.toFixed(2) > 1.00 )
+        pwmDutyCycle = 0.00 ;                   // reset duty-cycle to zero
+} ;
+var intervalID = setInterval(periodicActivity, 2000) ;  // start the periodic sweep
+
+
+// type process.exit(0) in debug console to see
+// the following message be emitted to the debug console
+
+process.on("exit", function(code) {
+    clearInterval(intervalID) ;
+    console.log("\nExiting " + APP_NAME + ", with code:", code) ;
+}) ;
