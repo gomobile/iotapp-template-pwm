@@ -3,15 +3,16 @@
  * PWM digital I/O pin, on select Intel IoT development boards. Optionally,
  * use the PWM signal to control the intensity of an attached LED.
  *
- * Supported Intel IoT development boards are identified in the code.
+ * Supported Intel IoT development boards are identified in the code (see the
+ * cfg-app-platform.js file for details).
  *
  * See LICENSE.md for license terms and conditions.
  *
- * https://software.intel.com/en-us/html5/articles/intel-xdk-iot-edition-nodejs-templates
+ * https://software.intel.com/en-us/xdk/docs/using-templates-nodejs-iot
  */
 
-// spec jslint and jshint lines for desired JavaScript linting
-// see http://www.jslint.com/help.html and http://jshint.com/docs
+/* spec jslint and jshint lines for desired JavaScript linting */
+/* see http://www.jslint.com/help.html and http://jshint.com/docs */
 /* jslint node:true */
 /* jshint unused:true */
 
