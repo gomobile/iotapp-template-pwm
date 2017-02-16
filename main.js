@@ -1,14 +1,21 @@
-/*
+/**
+ * @file
  * A simple Node.js IoT app that generates a PWM signal using a built-in
  * PWM digital I/O pin, on select Intel IoT development boards. Optionally,
  * use the PWM signal to control the intensity of an attached LED.
  *
- * Supported Intel IoT development boards are identified in the code (see the
- * cfg-app-platform.js file for details).
+ * Supported Intel IoT development boards are identified in the code.
+ * See the `cfg-app-platform.js` file for board configuration details.
  *
- * See LICENSE.md for license terms and conditions.
+ * <https://software.intel.com/en-us/xdk/docs/using-templates-nodejs-iot>
  *
- * https://software.intel.com/en-us/xdk/docs/using-templates-nodejs-iot
+ * @author Paul Fischer, Intel Corporation
+ * @author Elroy Ashtian, Intel Corporation
+ * @author Dan Yocom, Intel Corporation
+ *
+ * @copyright (c) 2016-2017, Intel Corporation
+ * @license BSD-3-Clause
+ * See LICENSE.md for complete license terms and conditions.
  */
 
 /* spec jslint and jshint lines for desired JavaScript linting */
@@ -20,7 +27,7 @@
 
 
 var APP_NAME = "IoT PWM" ;
-var cfg = require("./cfg-app-platform.js")() ;          // init and config I/O resources
+var cfg = require("./utl/cfg-app-platform.js")() ;      // init and config I/O resources
 
 console.log("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n") ;   // poor man's clear console
 console.log("Initializing " + APP_NAME) ;
