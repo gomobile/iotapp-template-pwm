@@ -11,6 +11,12 @@ For help getting started developing applications with the
 Intel XDK, please start with
 [the Intel XDK documentation](https://software.intel.com/en-us/xdk/docs).
 
+See also, the
+[mraa library documentation](https://iotdk.intel.com/docs/master/mraa/index.html)
+for details regarding supported boards and the mraa library API and the
+[upm library documentation](https://iotdk.intel.com/docs/master/upm/) for
+information regarding the upm sensor and actuator library APIs.
+
 App Overview
 ------------
 A simple Node.js application that programs an onboard digital output for
@@ -66,7 +72,7 @@ Important Project Files
 Tested IoT Node.js Platforms
 ----------------------------
 * [Intel® Galileo Board for Arduino](http://intel.com/galileo)
-* [Intel® Edison Board for Ardunio](http://intel.com/edison)
+* [Intel® Edison Board for Arduino](http://intel.com/edison)
 * [Intel® Joule™ 570x Developer Kit](http://intel.com/joule)
 
 This sample can run on other IoT [Node.js](http://nodejs.org) development

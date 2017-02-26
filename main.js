@@ -29,7 +29,7 @@
 var APP_NAME = "IoT PWM" ;
 var cfg = require("./utl/cfg-app-platform.js")() ;      // init and config I/O resources
 
-console.log("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n") ;   // poor man's clear console
+console.log("\n\n\n\n\n\n") ;                           // poor man's clear console
 console.log("Initializing " + APP_NAME) ;
 
 process.on("exit", function(code) {                     // define up front, due to no "hoisting"
