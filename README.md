@@ -1,5 +1,6 @@
 Intel® XDK IoT Node.js* PWM App
 ===============================
+
 See [LICENSE.md](LICENSE.md) for license terms and conditions.
 
 This sample application is distributed as part of the
@@ -19,6 +20,7 @@ information regarding the upm sensor and actuator library APIs.
 
 App Overview
 ------------
+
 A simple Node.js application that programs an onboard digital output for
 PWM (Pulse Width Modulation) mode, on select Intel IoT development boards.
 The PWM duty-cycle is changed over a predefined range. Optionally, you
@@ -60,17 +62,20 @@ documentation). Or, you can simply modify the code to change the default value.
 
 Important App Files
 -------------------
+
 * main.js
 * package.json
 
 Important Project Files
 -----------------------
+
 * README.md
 * LICENSE.md
 * \<project-name\>.xdk
 
 Tested IoT Node.js Platforms
 ----------------------------
+
 * [Intel® Galileo Board for Arduino](http://intel.com/galileo)
 * [Intel® Edison Board for Arduino](http://intel.com/edison)
 * [Intel® Joule™ 570x Developer Kit](http://intel.com/joule)
