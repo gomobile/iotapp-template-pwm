@@ -1,5 +1,5 @@
-Intel® XDK IoT Node.js* PWM App
-===============================
+Intel® XDK IoT Node.js\* PWM App
+================================
 
 See [LICENSE.md](LICENSE.md) for license terms and conditions.
 
